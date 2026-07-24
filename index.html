@@ -69,11 +69,11 @@
       </div>
       <p class="tagline">Exploratory Tester’s Companion</p>
       <p class="lead">
-        A real Windows browser for testing—not a headless fetch wrapper.
-        Script what you just did, run quick technical checks, and let an LLM explore beside you.
+        A real Windows browser for testing, built on 28 years of exploratory testing. 
+        Run quicktests, write your own, and let an LLM explore beside you.
         You stay responsible for what matters.
         <br>
-		Purpose is to enable more and better exploratory testing in the world.
+		Freeware with the purpose to enable more and better exploratory testing.
       </p>      
 	  <div class="cta-row">
         <a class="btn btn-primary" href="https://www.thetesteye.com/code/Trowser.zip">Download for Windows</a>
@@ -133,11 +133,10 @@
     </section>
 
     <section class="section" id="agents">
-      <h2>For LLM agents</h2>
+      <h2>LLM usage</h2>
       <p>
-        Prefer the MCP endpoint when available. Snapshot first, act with refs,
-        re-snapshot after meaningful changes, and check console/network for hidden failures.
-        Use <code>safetyMode: "active"</code> only when probes may mutate server state.
+        Use Chat window for smaller work with your API key (Openouter free is default). For larger sessions, recommendation is to point your agent of choice to the REST API and documentation (use appropriate files from trowserkit folder.) 
+        Your prompts steer the work, and your judgment is needed on the results.
       </p>
       <div class="agent-box">
         <p><strong>MCP:</strong> <code>POST http://localhost:6923/mcp</code></p>
@@ -179,7 +178,7 @@
         </li>
       </ul>
       <p class="reqs">
-        <strong>Requirements:</strong> Windows 64-bit with WebView2 Runtime (included with Edge).
+        <strong>Requirements:</strong> Windows 64-bit (or emulator) with WebView2 Runtime (included with Edge).
         Read security notes before pointing it at production systems.
       </p>
     </section>

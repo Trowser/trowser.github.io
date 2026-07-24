@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trowser — Exploratory Tester’s Companion</title>
+  <meta name="description" content="Trowser is a Windows WebView2 testing browser with C# scripting, accessibility and security scans, and an LLM-friendly REST/MCP API. Built for exploratory testers who stay in charge.">
+  <meta name="keywords" content="Trowser, exploratory testing, WebView2, test automation, accessibility, WCAG, security scan, MCP, REST API, C# scripting, LLM testing">
+  <meta name="author" content="Rikard Edgren">
+  <link rel="canonical" href="https://trowser.github.io/">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trowser.github.io/">
+  <meta property="og:title" content="Trowser — Exploratory Tester’s Companion">
+  <meta property="og:description" content="A Windows testing browser with scripting, quick technical scans, and an LLM-friendly API. Humans decide what matters; machines help go faster.">
+  <meta property="og:image" content="https://trowser.github.io/assets/trowser_mainscreen.png">
+  <meta property="og:site_name" content="Trowser">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trowser — Exploratory Tester’s Companion">
+  <meta name="twitter:description" content="Windows WebView2 testing browser with C# scripting, quicktests, and REST/MCP for LLM agents.">
+  <meta name="twitter:image" content="https://trowser.github.io/assets/trowser_mainscreen.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Trowser",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Windows 64-bit",
+    "description": "A WebView2 testing browser with built-in scripting, accessibility and security scans, and an LLM-friendly REST/MCP API for exploratory testing.",
+    "url": "https://trowser.github.io/",
+    "downloadUrl": "https://www.thetesteye.com/code/Trowser.zip",
+    "softwareHelp": "https://www.thetesteye.com/papers/TamingTheTrowser.pdf",
+    "author": {
+      "@type": "Person",
+      "name": "Rikard Edgren"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="landing">
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img src="assets/trowser.png" width="32" height="32" alt="">
+      <span>Trowser</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="docs/manual.html">Manual</a>
+      <a href="docs/script-help.html">Scripting</a>
+      <a href="docs/api.html">API</a>
+      <a href="https://youtube.com/watch?v=mQnYhafyqks">Demo</a>
+      <a href="https://github.com/Trowser/Trowser/issues">Issues</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-brand">
+        <img src="assets/trowser.png" width="72" height="72" alt="Trowser logo">
+        <h1>Trowser</h1>
+      </div>
+      <p class="tagline">Exploratory Tester’s Companion</p>
+      <p class="lead">
+        A real Windows browser for testing—not a headless fetch wrapper.
+        Script what you just did, run quick technical checks, and let an LLM explore beside you.
+        You stay responsible for what matters.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.thetesteye.com/code/Trowser.zip">Download for Windows</a>
+        <a class="btn btn-ghost" href="https://youtube.com/watch?v=mQnYhafyqks">Watch the demo</a>
+        <a class="btn btn-ghost" href="https://www.thetesteye.com/papers/TamingTheTrowser.pdf">Read the manual (PDF)</a>
+      </div>
+      <p class="meta-line">Windows&nbsp;64-bit · WebView2 (Edge) · Free download</p>
+    </section>
+
+    <div class="shot-wrap">
+      <figure class="shot">
+        <img
+          src="assets/trowser_mainscreen.png"
+          width="1918"
+          height="1140"
+          alt="Trowser main window: browser, AI Assistant panel, and Script Console with C# quicktests"
+          loading="eager"
+          decoding="async">
+      </figure>
+    </div>
+
+    <section class="section" id="humans">
+      <h2>Humans and machines</h2>
+      <p>
+        Humans are better at judging what is important, separating right from wrong,
+        and dealing with the unknown. Machines are fast at technical detail and slow
+        at exploratory judgment. Trowser is powerful—and still needs a person who
+        understands what might matter.
+      </p>
+    </section>
+
+    <section class="section" id="features">
+      <h2>What you get</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Browse and inspect</h3>
+          <p>
+            WebView2 browser with scope and Safe mode, F12 tools, session log,
+            and a record button that turns exploration into a C# script.
+          </p>
+        </div>
+        <div class="pillar">
+          <h3>C# scripting</h3>
+          <p>
+            Script Console with quicktests for accessibility, performance,
+            security, compatibility, and more—or write your own <code>.csx</code> files.
+          </p>
+        </div>
+        <div class="pillar">
+          <h3>LLM-ready API</h3>
+          <p>
+            REST and MCP on <code>localhost:6923</code> so agents can snapshot the page,
+            click by ref, run scans, and report findings while you steer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agents">
+      <h2>For LLM agents</h2>
+      <p>
+        Prefer the MCP endpoint when available. Snapshot first, act with refs,
+        re-snapshot after meaningful changes, and check console/network for hidden failures.
+        Use <code>safetyMode: "active"</code> only when probes may mutate server state.
+      </p>
+      <div class="agent-box">
+        <p><strong>MCP:</strong> <code>POST http://localhost:6923/mcp</code></p>
+        <p><strong>REST:</strong> <code>http://localhost:6923</code> with <code>Authorization: Bearer &lt;api-key&gt;</code></p>
+        <p style="margin-top:0.65rem">Start here: <a href="docs/api.html">API index</a> · <a href="llms.txt">llms.txt</a> · <a href="docs/manual.html">in-app manual</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <h2>Links</h2>
+      <ul class="link-list">
+        <li>
+          <a href="https://www.thetesteye.com/code/Trowser.zip">Download
+            <span>Trowser.zip for Windows</span></a>
+        </li>
+        <li>
+          <a href="https://www.thetesteye.com/papers/TamingTheTrowser.pdf">Taming the Trowser
+            <span>PDF guide</span></a>
+        </li>
+        <li>
+          <a href="https://youtube.com/watch?v=mQnYhafyqks">YouTube demo
+            <span>see it in action</span></a>
+        </li>
+        <li>
+          <a href="docs/manual.html">Built-in manual
+            <span>getting started &amp; design ideas</span></a>
+        </li>
+        <li>
+          <a href="docs/script-help.html">Script Console help
+            <span>API for .csx scripts</span></a>
+        </li>
+        <li>
+          <a href="docs/api.html">REST &amp; MCP index
+            <span>endpoints and tools</span></a>
+        </li>
+        <li>
+          <a href="https://github.com/Trowser/Trowser/issues">Issue tracking
+            <span>bugs and ideas</span></a>
+        </li>
+      </ul>
+      <p class="reqs">
+        <strong>Requirements:</strong> Windows 64-bit with WebView2 Runtime (included with Edge).
+        Read security notes before pointing it at production systems.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="./">Trowser</a> — Exploratory Tester’s Companion ·
+      <a href="https://github.com/Trowser/Trowser/issues">Issues</a> ·
+      <a href="llms.txt">llms.txt</a>
+    </p>
+    <p>Created by Rikard Edgren</p>
+  </footer>
+</body>
+</html>

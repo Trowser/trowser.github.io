@@ -1,0 +1,35 @@
+# Trowser
+
+> Trowser is a Windows WebView2 testing browser for exploratory testers.
+> It combines a real browser UI with C# scripting, quick technical scans,
+> and an LLM-friendly REST/MCP API. Humans decide what is important; machines help go faster.
+
+Homepage: https://trowser.github.io/
+Download: https://www.thetesteye.com/code/Trowser.zip
+Manual (PDF): https://www.thetesteye.com/papers/TamingTheTrowser.pdf
+Demo (YouTube): https://youtube.com/watch?v=mQnYhafyqks
+Issues: https://github.com/Trowser/Trowser/issues
+
+## Docs for agents
+
+- [API index (HTML)](https://trowser.github.io/docs/api.html): REST endpoints and MCP tools
+- [API index (Markdown)](https://trowser.github.io/docs/trowser-api-index.md): same content, machine-friendly
+- [In-app manual](https://trowser.github.io/docs/manual.html): philosophy, getting started, LLM tips
+- [Script Console help](https://trowser.github.io/docs/script-help.html): C# scripting reference
+
+## How to drive Trowser via API
+
+1. User runs Trowser.exe on Windows; API listens on `http://localhost:6923` (default).
+2. Authenticate REST with `Authorization: Bearer <api-key>` (shown in the session; `GET /api/ping` is open).
+3. Prefer MCP: `POST http://localhost:6923/mcp`.
+4. Workflow: `browser_snapshot` / `GET /api/state` → act with element **ref** → re-snapshot after DOM changes.
+5. Check console and network logs for hidden failures.
+6. For probes that may change server state, use `safetyMode: "active"` (or turn Safe mode off).
+7. Prefer `browser_clear_session` over clearing everything when login cookies should remain.
+
+## Product facts
+
+- Platform: Windows 64-bit, WebView2 (Edge)
+- Not headless-only: interacts with a real browser window
+- Built-in: accessibility (axe), performance, lightweight security scans, record/playback to `.csx`
+- Design: human in control; LLM APIs designed for agent use; quicktests for fast technical checks

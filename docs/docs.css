@@ -134,35 +134,21 @@
   font-size: 0.88rem !important;
 }
 
-/* Embedded app docs (manual / script-help): keep their dark look,
-   only overlay the shared site header at the top */
+/* Embedded app docs (manual / script-help): keep their dark content look,
+   but use the same light site header as index / api pages */
 body.embedded-doc {
-  /* Ensure shared site CSS does not force the light landing palette */
+  /* Ensure shared site CSS does not force the light landing palette on content */
   color: inherit;
   background: inherit;
 }
 
 .embedded-doc .site-header {
-  background: #111;
-  border-bottom: 1px solid #2a2a2a;
   max-width: none;
-}
-
-.embedded-doc .brand {
-  color: #e0e0e0;
-}
-
-.embedded-doc .brand:hover {
-  color: #fff;
-}
-
-.embedded-doc .site-nav a {
-  color: #999;
-}
-
-.embedded-doc .site-nav a:hover,
-.embedded-doc .site-nav a.active {
-  color: var(--orange);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(245, 126, 35, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(245, 126, 35, 0.06), transparent 45%),
+    var(--paper);
+  border-bottom: 1px solid var(--line);
 }
 
 .embedded-doc .site-footer {

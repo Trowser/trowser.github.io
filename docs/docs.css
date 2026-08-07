@@ -4,7 +4,8 @@
 }
 
 .docs-main {
-  max-width: var(--max);
+  /* Match .site-header / landing .hero so the brand lines up with page content */
+  max-width: calc(var(--max) + 4rem);
   margin: 0 auto;
   padding: 1.5rem 1.5rem 3rem;
 }
@@ -143,7 +144,10 @@ body.embedded-doc {
 }
 
 .embedded-doc .site-header {
+  /* Full-bleed light bar, but inset brand/nav like the shared constrained header */
   max-width: none;
+  padding-left: max(1.5rem, calc((100% - (var(--max) + 4rem)) / 2 + 1.5rem)) !important;
+  padding-right: max(1.5rem, calc((100% - (var(--max) + 4rem)) / 2 + 1.5rem)) !important;
   background:
     radial-gradient(ellipse 80% 50% at 10% -10%, rgba(245, 126, 35, 0.14), transparent 55%),
     radial-gradient(ellipse 60% 40% at 100% 0%, rgba(245, 126, 35, 0.06), transparent 45%),

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Trowser</title>
+<meta name="description" content="Frequently asked questions about Trowser: download, Windows setup, scripting, Safe mode, and connecting an LLM via REST or MCP.">
+<link rel="canonical" href="https://trowser.github.io/docs/faq.html">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0c0c0c;
+    color: #d4d4d4;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: calc(var(--max) + 4rem);
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 1.5rem 80px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .header img {
+    width: 52px;
+    height: 52px;
+  }
+  .logo {
+    font-size: 42px;
+    font-weight: 700;
+    color: #e0e0e0;
+    letter-spacing: -1px;
+  }
+  .tagline {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 48px;
+  }
+  .section {
+    margin-bottom: 32px;
+  }
+  .section h2 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ce9178;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+  }
+  .section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 22px 0 8px;
+    letter-spacing: -0.02em;
+    scroll-margin-top: 1rem;
+  }
+  .section h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .section h3 a:hover {
+    color: #ce9178;
+  }
+  .section p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #999;
+    margin-bottom: 10px;
+  }
+  .section p strong {
+    color: #d4d4d4;
+    font-weight: 500;
+  }
+  .section ul,
+  .section ol {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #999;
+    margin: 0 0 10px 1.2rem;
+  }
+  .section li {
+    margin-bottom: 4px;
+  }
+  .section a {
+    color: #ce9178;
+  }
+  kbd {
+    display: inline-block;
+    min-width: 22px;
+    text-align: center;
+    font-family: 'Cascadia Code', Consolas, monospace;
+    font-size: 11px;
+    color: #ddd;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 0 1px;
+  }
+  .container code {
+    font-family: 'Cascadia Code', Consolas, monospace;
+    font-size: 12px;
+    color: #ce9178;
+    background: #2d2d30;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .intro {
+    margin-bottom: 32px;
+  }
+  .intro p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #999;
+    margin-bottom: 10px;
+  }
+  .toc {
+    margin-bottom: 40px;
+    padding: 16px 20px;
+    background: #1a1a1a;
+    border-left: 3px solid #3F3F46;
+  }
+  .toc h2 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ce9178;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+  .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc li {
+    font-size: 13px;
+    line-height: 1.7;
+    break-inside: avoid;
+  }
+  .toc a {
+    color: #bbb;
+    text-decoration: none;
+  }
+  .toc a:hover {
+    color: #ce9178;
+  }
+  @media (max-width: 640px) {
+    .toc ul { columns: 1; }
+  }
+</style>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="docs.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Trowser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trowser is a Windows testing browser built on WebView2 (Edge). It is a real browser with built-in C# scripting, quick technical scans, and an LLM-friendly REST/MCP API. You stay in charge of what matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Trowser free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Trowser is freeware. You may use it at work. The license is MIT with Commons Clause: you may not sell Trowser or a product that is substantially Trowser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I need to run Trowser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Windows 10 or 11, 64-bit, with the WebView2 Runtime (included with Edge). It is not a Mac or Linux app; Wine or Crossover may work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I connect Cursor or another LLM to Trowser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start Trowser, turn the REST API on in the status bar, keep the API key for the next session, then copy the MCP client config from LLM Settings and paste it into your agent. MCP is POST http://localhost:6923/mcp with a Bearer API key."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="embedded-doc">
+<header class="site-header">
+    <a class="brand" href="../">
+      <img src="../assets/trowser.png" width="32" height="32" alt="">
+      <span>Trowser</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../">Home</a>
+      <a class="active" href="faq.html">FAQ</a>
+      <a href="manual.html">Manual</a>
+      <a href="script-help.html">Scripting</a>
+      <a href="api.html">API</a>
+      <a href="https://github.com/Trowser/Trowser/issues">Issues</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="header">
+      <img src="../assets/trowser.png" alt="Trowser">
+      <div class="logo">FAQ</div>
+    </div>
+    <div class="intro">
+      <p>This page might answer some of your questions. If something is wrong or missing, it is a documentation bug that should be logged at <a href="https://github.com/Trowser/Trowser/issues">Github issues</a>.</p>
+    </div>
+
+    <nav class="toc" aria-label="Questions">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#what-is-trowser">What is Trowser?</a></li>
+        <li><a href="#who-is-it-for">Who is it for?</a></li>
+        <li><a href="#free">Is it free?</a></li>
+        <li><a href="#requirements">What do I need to run it?</a></li>
+        <li><a href="#install">How do I install it?</a></li>
+        <li><a href="#smartscreen">Windows blocked the program</a></li>
+        <li><a href="#mac-linux">macOS or Linux?</a></li>
+        <li><a href="#vs-other-tools">Chrome, Playwright, ZAP, axe?</a></li>
+        <li><a href="#first-steps">Where do I start?</a></li>
+        <li><a href="#csharp">I don’t know C#</a></li>
+        <li><a href="#quicktests">What are Quicktests?</a></li>
+        <li><a href="#safe-mode">What is Safe mode?</a></li>
+        <li><a href="#record">Can I record what I do?</a></li>
+        <li><a href="#llm">How do I connect an LLM?</a></li>
+        <li><a href="#chat-vs-agent">Chat window vs external agent?</a></li>
+        <li><a href="#api-key">Why an API key?</a></li>
+        <li><a href="#privacy">Does it phone home?</a></li>
+        <li><a href="#production">Can I test production?</a></li>
+        <li><a href="#two-users">Two users / two sessions?</a></li>
+        <li><a href="#docs">Where is the rest of the docs?</a></li>
+        <li><a href="#bugs">How do I report a bug?</a></li>
+      </ul>
+    </nav>
+
+    <div class="section">
+      <h2>Getting Trowser</h2>
+
+      <h3 id="what-is-trowser"><a href="#what-is-trowser">What is Trowser?</a></h3>
+      <p>A Windows browser built for testing web services. It is a real WebView2 (Edge) window — not a headless fetch tool — with a Script Console, quick technical scans, and a REST/MCP API so an LLM can sit beside you. The ambition is to make exploratory testing faster and richer, not to replace the tester.</p>
+      <p>You decide what is important, what to investigate, and what to report. Trowser just helps you do things sooner.</p>
+
+      <h3 id="who-is-it-for"><a href="#who-is-it-for">Who is it for?</a></h3>
+      <p>Exploratory testers who already know (or are learning) the product under test. It will feel dense if you are brand new to testing; see that as a huge learning opportunity. It is a companion for people who want quick access to accessibility, performance, compatibility, and security checks, plus scripting and an LLM, without leaving the browser.</p>
+
+      <h3 id="free"><a href="#free">Is it free? What’s the license?</a></h3>
+      <p>Yes — freeware, with the purpose of enabling more and better exploratory testing. You may use it at work. The license is MIT with Commons Clause: you may modify and share, but you may not sell Trowser or a product that is substantially Trowser.</p>
+
+      <h3 id="requirements"><a href="#requirements">What do I need to run it?</a></h3>
+      <p><strong>Windows 10 or 11, 64-bit</strong>, and the <strong>WebView2 Runtime</strong> (ships with Edge; install it from Microsoft if a machine is missing it). Unzip and run <code>Trowser.exe</code>. You do not need Visual Studio for the download zip.</p>
+      <p>If you build from source you will want the .NET 8 SDK. Most newcomers never need that.</p>
+
+      <h3 id="install"><a href="#install">How do I install it?</a></h3>
+      <p>Download <a href="https://www.thetesteye.com/code/Trowser.zip">Trowser.zip</a>, unpack it, run <code>Trowser.exe</code>. There is no installer. The zip also contains the <strong>trowserkit</strong> folder — API docs, scripting help, and example prompts to give an LLM.</p>
+
+      <h3 id="smartscreen"><a href="#smartscreen">Windows says it protected my PC</a></h3>
+      <p>SmartScreen is cautious with less-known publishers. Choose <strong>More info</strong> → <strong>Run anyway</strong> once. After that, Windows usually remembers. If it keeps nagging, open <code>SMARTScreen.md</code> in the zip (next to <code>Trowser.exe</code>) for a one-time certificate install.</p>
+
+      <h3 id="mac-linux"><a href="#mac-linux">Does it work on macOS or Linux?</a></h3>
+      <p>No native build. Trowser is Windows all the way — WebView2 and C# scripting. It <em>should</em> run on Wine or Crossover; treat that as a bonus, not a promise.</p>
+    </div>
+
+    <div class="section">
+      <h2>Using it</h2>
+
+      <h3 id="vs-other-tools"><a href="#vs-other-tools">Is this a replacement for Chrome, Playwright, ZAP, or axe?</a></h3>
+      <p>No. Use your favorite browser for everyday browsing. Use Playwright or similar when you need a solid, long-lived automation suite. Use ZAP (or another proxy) when you want a dedicated attack proxy. Use axe DevTools when you want the full accessibility specialist workflow.</p>
+      <p>Trowser gives you <em>quick access</em> to many of those jobs inside the testing browser — axe-core, Retire.js, html-validate, web-vitals, a simple mock/intercept, optional proxy routing — plus things few other tools combine: scripting at the current URL, Watch mode, and an API designed for LLMs. Reach for the specialist tool when you outgrow the quick path.</p>
+
+      <h3 id="first-steps"><a href="#first-steps">I launched it. Where do I start?</a></h3>
+      <p>Go to the site you are testing. Open the <strong>Script Console</strong> (<kbd>Ctrl</kbd>+<kbd>0</kbd>) and try a few Quicktests. Watch mode can re-run a smoke script on every navigation — tailor it to <em>your</em> service (user name, company musts, no 500s).</p>
+      <p>Useful from minute one: <kbd>Ctrl</kbd>+<kbd>D</kbd> copies random test data, <kbd>Ctrl</kbd>+<kbd>I</kbd> offers a testing inspiration, F12 is DevTools. If you have an LLM agent, turn on the REST API in the status bar and hand it the kit docs.</p>
+      <p>The <a href="manual.html">in-app manual</a> walks through this in more detail.</p>
+
+      <h3 id="csharp"><a href="#csharp">I don’t know C#. Can I still use it?</a></h3>
+      <p>Yes. Browse, inspect, run Quicktests, use the built-in Chat, and let an external agent drive the API or write new quicktests for you — none of that requires you to write C#. Scripts are C# (<code>.csx</code>, Roslyn) because that is what the host is. If you already script in another language, the syntax gap is small; start from a Quicktest and change it. The <a href="script-help.html">Script Console help</a> is the cheat sheet.</p>
+
+      <h3 id="quicktests"><a href="#quicktests">What are Quicktests?</a></h3>
+      <p>Ready-made scripts in the Script Console dropdown: accessibility, performance, compatibility, HTML validation, security scans, monkey testing, and more. They are starting points, not oracles. A green check does not mean the product is good; a red one does not always mean a bug. Read the output, then decide.</p>
+      <p>Some are better after a session than during it (for example biggest files, or collecting console/network errors). Security Quicktests work best after you have actually used the app — they learn from captured traffic.</p>
+
+      <h3 id="safe-mode"><a href="#safe-mode">What is Safe mode?</a></h3>
+      <p>It blocks operations that can change the page or the server. With Safe mode on (CLI <code>--safe</code>, or the setting in the UI), Trowser blocks scripting, in-page fetch, mocks, intercepts, fuzzing, and most active security probes. Passive looking stays available. Turn it off — and for API scans set <code>safetyMode</code> to <code>active</code> or higher — only when you mean to poke the server, and only on systems you are allowed to test.</p>
+
+      <h3 id="record"><a href="#record">Can I record what I do and play it back?</a></h3>
+      <p>Yes, and it is still fragile, like every record/playback tool. First use is “help me right now,” not a five-year regression suite. Recordings often pick xpaths you will want to rewrite. An LLM with the API is surprisingly good at repairing scripts. If durable automation is the goal, improve the recording by hand, start from an LLM draft, or use a dedicated framework.</p>
+      <p><code>data-testid</code> (and WebMCP on the site) makes everything easier — for you and for the machine.</p>
+    </div>
+
+    <div class="section">
+      <h2>LLM, REST, and MCP</h2>
+
+      <h3 id="llm"><a href="#llm">How do I connect Cursor or another LLM?</a></h3>
+      <p>Trowser must be running. Turn the API on in the status bar (default port <code>http://localhost:6923</code>).</p>
+      <ol>
+        <li>Settings → enable <strong>Keep API key for next session</strong> if you want to avoid rotate on every restart.</li>
+        <li>LLM Settings → <strong>Provider</strong> → pick your model (OpenRouter free is cheap and your API key is all that is needed).</li>
+        <li>Select your preferred interaction mode, consider to change the system prompt, and launch the AI Assistant, <kbd>Ctrl</kbd>+<kbd>L</kbd>.</li>
+      </ol>
+      <p>MCP is Streamable HTTP: <code>POST http://localhost:6923/mcp</code> with <code>Authorization: Bearer &lt;api-key&gt;</code>. Copied configs use <code>?mode=core</code> (interact + quality audits + a basic security scan). For a full security toolbox use <code>?mode=security</code>. REST is always the full API surface; Safe mode still applies.</p>
+      <p>If you use REST API, give the agent the kit docs, not just the URL. Start with trowser-api-reference.md and prompt as you wish.</p>
+	  <p>You can also connect your agent to a local MCP server, using the MCP config Copy.</p>
+
+      <h3 id="chat-vs-agent"><a href="#chat-vs-agent">Chat window vs an external agent — which should I use?</a></h3>
+      <p><strong>Built-in Chat</strong> is for small chunks: a sounding board, a quick pass, something you watch happen. Set the provider in LLM Settings (OpenRouter free is the default; you still need your own key). Modes: Chat (advisor), Economical (everyday live testing), Full (complete tool surface). Long chats burn tokens because the whole history is resent — start a new conversation when the old context is not helping.</p>
+      <p><strong>An external agent</strong> (Cursor, Claude Code, …) with REST or MCP is the better setup for a real session. You can attach documentation, get a readable report, and leave it running over lunch. A strong model finds a useful share of what a human would, and sometimes things you did not have time for. A weak model mostly restates the current page.</p>
+      <p>Recommendation: second tester during lunch or after work — and you still judge the results. Pretty reports are not the same as good testing.</p>
+
+      <h3 id="api-key"><a href="#api-key">Why do I need an API key?</a></h3>
+      <p>Anyone who can call localhost with a valid key can drive the browser, run page JavaScript, run C# in the Trowser process, and reuse the session’s cookies. The key is that privilege boundary. It is generated each start unless you keep it or pass <code>--api-key</code>. <code>GET /api/ping</code> is the exception (health check, no key).</p>
+      <p>Do not commit a live key. The API binds to localhost only; it is not a remote testing service.</p>
+    </div>
+
+    <div class="section">
+      <h2>Safety and data</h2>
+
+      <h3 id="privacy"><a href="#privacy">Does Trowser phone home or train on my testing?</a></h3>
+      <p>No telemetry, analytics, or usage data to Trowser’s author. Settings and logs stay on your machine (<code>%APPDATA%\Trowser\</code>).</p>
+      <p>Traffic that <em>does</em> leave the box: the sites you browse (normal WebView2); LLM calls only when you configure a provider and send a message (page snapshots and tool results go to <em>that</em> endpoint); an occasional Retire.js database version check on GitHub during security scans (no user data); and whatever you send through a proxy if you configured one.</p>
+
+      <h3 id="production"><a href="#production">Can I point it at production?</a></h3>
+      <p>Only against systems you are authorized to test, and preferably not as a daily browser. Safe mode exists because mocks, intercepts, scripts, and active probes can change server state. Scope (navigation guard) can keep you on the intended host. Read the security notes in trowserkit before you get ambitious.</p>
+      <p>Active injection and fuzzing belong on a test environment. “The scanner said it was fine” is not a ship decision.</p>
+
+      <h3 id="two-users"><a href="#two-users">Can I test as two different users?</a></h3>
+      <p>Yes. Start another Trowser with its own <code>--session</code> and <code>--api-port</code>, log in as a second identity, and let an agent (or you) compare what each session can see. That is the intended path for IDOR/BOLA-style checks — two real browsers, two cookies, not one clever header edit.</p>
+    </div>
+
+    <div class="section">
+      <h2>Docs and contact</h2>
+
+      <h3 id="docs"><a href="#docs">Where is the rest of the documentation?</a></h3>
+      <ul>
+        <li><a href="manual.html">In-app manual</a> — getting started, design ideas, LLM tips</li>
+        <li><a href="https://www.thetesteye.com/papers/TamingTheTrowser.pdf">Taming the Trowser (PDF)</a></li>
+        <li><a href="script-help.html">Script Console help</a> — C# API for <code>.csx</code> scripts</li>
+        <li><a href="api.html">REST &amp; MCP index</a> — every endpoint and tool name</li>
+        <li>The <strong>trowserkit</strong> folder in the zip — fuller API reference, security methodology, example prompts, <code>llms.txt</code></li>
+        <li><a href="https://youtube.com/watch?v=mQnYhafyqks">YouTube demo</a></li>
+      </ul>
+
+      <h3 id="bugs"><a href="#bugs">How do I report a bug or suggest an idea?</a></h3>
+      <p><a href="https://github.com/Trowser/Trowser/issues">github.com/Trowser/Trowser/issues</a>. Include the Trowser version, what you did, what you expected, and what happened. If an LLM was in the loop, say which model and whether it used Chat, REST, or MCP.</p>
+      <p>Trowser is a one-person project with a lot of LLM help. Fixes land when they can. Kind, specific issues help more than volume.</p>
+    </div>
+  </div>
+<footer class="site-footer">
+    <p><a href="../">Trowser</a> — Exploratory Tester’s Companion · <a href="manual.html">Manual</a> · <a href="https://www.thetesteye.com/papers/TamingTheTrowser.pdf">PDF manual</a></p>
+    <p>Created by Rikard Edgren</p>
+  </footer>
+</body>
+</html>

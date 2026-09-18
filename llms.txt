@@ -15,6 +15,7 @@ Issues: https://github.com/Trowser/Trowser/issues
 - [API index (HTML)](https://trowser.github.io/docs/api.html): REST endpoints and MCP tools
 - [API index (Markdown)](https://trowser.github.io/docs/trowser-api-index.md): same content, machine-friendly
 - [In-app manual](https://trowser.github.io/docs/manual.html): philosophy, getting started, LLM tips
+- [FAQ](https://trowser.github.io/docs/faq.html): newcomer questions (install, Safe mode, MCP, privacy)
 - [Script Console help](https://trowser.github.io/docs/script-help.html): C# scripting reference
 
 ## How to drive Trowser via API

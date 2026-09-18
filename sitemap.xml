@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://trowser.github.io/docs/faq.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://trowser.github.io/docs/script-help.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

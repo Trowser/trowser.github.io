@@ -228,21 +228,21 @@
     <nav class="toc" aria-label="Questions">
       <h2>On this page</h2>
       <ul>
-        <li><a href="#what-is-trowser">What is Trowser?</a></li>
-        <li><a href="#who-is-it-for">Who is it for?</a></li>
-        <li><a href="#free">Is it free?</a></li>
+        <li><a href="#what-is-the-problem">What problem is Trowser solving?</a></li>
+        <li><a href="#where-to-start">Where do I start?</a></li>
+        <li><a href="#ai-cost">What is the cost of AI?</a></li>
+        <li><a href="#chat-vs-agent">Chat window vs external agent?</a></li>
         <li><a href="#requirements">What do I need to run it?</a></li>
-        <li><a href="#install">How do I install it?</a></li>
         <li><a href="#smartscreen">Windows blocked the program</a></li>
         <li><a href="#mac-linux">macOS or Linux?</a></li>
         <li><a href="#vs-other-tools">Chrome, Playwright, ZAP, axe?</a></li>
-        <li><a href="#first-steps">Where do I start?</a></li>
         <li><a href="#csharp">I don’t know C#</a></li>
         <li><a href="#quicktests">What are Quicktests?</a></li>
         <li><a href="#safe-mode">What is Safe mode?</a></li>
         <li><a href="#record">Can I record what I do?</a></li>
+        <li><a href="#black-screen">My screen is black, what happened?</a></li>
+        <li><a href="#unique-features">What are the unique features?</a></li>
         <li><a href="#llm">How do I connect an LLM?</a></li>
-        <li><a href="#chat-vs-agent">Chat window vs external agent?</a></li>
         <li><a href="#api-key">Why an API key?</a></li>
         <li><a href="#privacy">Does it phone home?</a></li>
         <li><a href="#production">Can I test production?</a></li>
@@ -255,22 +255,26 @@
     <div class="section">
       <h2>Getting Trowser</h2>
 
-      <h3 id="what-is-trowser"><a href="#what-is-trowser">What is Trowser?</a></h3>
-      <p>A Windows browser built for testing web services. It is a real WebView2 (Edge) window — not a headless fetch tool — with a Script Console, quick technical scans, and a REST/MCP API so an LLM can sit beside you. The ambition is to make exploratory testing faster and richer, not to replace the tester.</p>
-      <p>You decide what is important, what to investigate, and what to report. Trowser just helps you do things sooner.</p>
+      <h3 id="what-is-the-problem"><a href="#what-is-the-problem">What problem is Trowser solving?</a></h3>
+      <p>Software is complex and can be used in so many intended and unintended ways, so testing is very difficult. Exploratory testing is the best method to test outside written requirements, but it is difficult and takes a lot of time.</p>
+      <p>Trowser makes it faster for humans and AI to expand the coverage and test more things in less time.</p>
 
-      <h3 id="who-is-it-for"><a href="#who-is-it-for">Who is it for?</a></h3>
-      <p>Exploratory testers who already know (or are learning) the product under test. It will feel dense if you are brand new to testing; see that as a huge learning opportunity. It is a companion for people who want quick access to accessibility, performance, compatibility, and security checks, plus scripting and an LLM, without leaving the browser.</p>
+      <h3 id="where-to-start"><a href="#where-to-start">I launched it. Where do I start?</a></h3>
+      <p>Go to the site you are testing. Open the <strong>Script Console</strong> (<kbd>Ctrl</kbd>+<kbd>0</kbd>) and try a few Quicktests. Watch mode can re-run a smoke script on every navigation — tailor it to <em>your</em> service (user name, company musts, no 500s).</p>
+      <p>Useful from minute one: <kbd>Ctrl</kbd>+<kbd>D</kbd> copies random test data, <kbd>Ctrl</kbd>+<kbd>I</kbd> offers a testing inspiration, F12 is DevTools. If you have an LLM agent, turn on the REST API in the status bar and hand it the kit docs.</p>
+      <p>The <a href="manual.html">in-app manual</a> walks through this in more detail.</p>
 
-      <h3 id="free"><a href="#free">Is it free? What’s the license?</a></h3>
-      <p>Yes — freeware, with the purpose of enabling more and better exploratory testing. You may use it at work. The license is MIT with Commons Clause: you may modify and share, but you may not sell Trowser or a product that is substantially Trowser.</p>
+      <h3 id="ai-cost"><a href="#ai-cost">What is the cost of AI?</a></h3>
+      <p>Most testers will get value from using the Trowser builtin testing tools, no cost since it is freeware. In LLM settings you can choose between Chat (cheapest), Economical and Full, so choose depending on your needs. LLMs need the full history for each interaction, so the longer thread, the more expensive. You can either right-click and select Compact, or restart the AI Assistant to lower the cost. For everything new, always a new chat (goes for all agents, not only Trowser). Because of this, exploratory testing is by definition more expensive, but it is also a way to find new things based on what is learnt. If you have a good subscription with less cost, I would recommend running Trowser with REST API from your coding agent, see trowserkit folder for examples.</p>
+	  <p>Compared to Playwright, Trowser is a lot more token-efficient.</p>
+
+      <h3 id="chat-vs-agent"><a href="#chat-vs-agent">Chat window vs an external agent — which should I use?</a></h3>
+      <p><strong>Built-in Chat</strong> is for small chunks: a sounding board, a quick pass, something you watch happen. Set the provider in LLM Settings (OpenRouter free is the default; you still need your own key). Modes: Chat (advisor), Economical (everyday live testing), Full (complete tool surface). Long chats burn tokens because the whole history is resent — start a new conversation when the old context is not helping.</p>
+      <p><strong>An external agent</strong> (Cursor, Claude Code, …) with REST or MCP is the better setup for a real session. You can attach documentation, get a readable report, and also use it for bigger projects. In that case I recommend a prompt that tells the LLM to write down what it learned during the session, and then refine that document over time.</p>
+      <p>Recommendation: second tester during lunch or after work — and you still judge the results. Pretty reports are not the same as good testing.</p>
 
       <h3 id="requirements"><a href="#requirements">What do I need to run it?</a></h3>
-      <p><strong>Windows 10 or 11, 64-bit</strong>, and the <strong>WebView2 Runtime</strong> (ships with Edge; install it from Microsoft if a machine is missing it). Unzip and run <code>Trowser.exe</code>. You do not need Visual Studio for the download zip.</p>
-      <p>If you build from source you will want the .NET 8 SDK. Most newcomers never need that.</p>
-
-      <h3 id="install"><a href="#install">How do I install it?</a></h3>
-      <p>Download <a href="https://www.thetesteye.com/code/Trowser.zip">Trowser.zip</a>, unpack it, run <code>Trowser.exe</code>. There is no installer. The zip also contains the <strong>trowserkit</strong> folder — API docs, scripting help, and example prompts to give an LLM.</p>
+      <p><strong>Windows 10 or 11, 64-bit</strong>, and the <strong>WebView2 Runtime</strong>. Download <a href="https://www.thetesteye.com/code/Trowser.zip">Trowser.zip</a>, unpack it, run <code>Trowser.exe</code>. There is no installer. The zip also contains the <strong>trowserkit</strong> folder — API docs, scripting help, and example prompts to give an LLM.</p>
 
       <h3 id="smartscreen"><a href="#smartscreen">Windows says it protected my PC</a></h3>
       <p>SmartScreen is cautious with less-known publishers. Choose <strong>More info</strong> → <strong>Run anyway</strong> once. After that, Windows usually remembers. If it keeps nagging, open <code>SMARTScreen.md</code> in the zip (next to <code>Trowser.exe</code>) for a one-time certificate install.</p>
@@ -286,11 +290,6 @@
       <p>No. Use your favorite browser for everyday browsing. Use Playwright or similar when you need a solid, long-lived automation suite. Use ZAP (or another proxy) when you want a dedicated attack proxy. Use axe DevTools when you want the full accessibility specialist workflow.</p>
       <p>Trowser gives you <em>quick access</em> to many of those jobs inside the testing browser — axe-core, Retire.js, html-validate, web-vitals, a simple mock/intercept, optional proxy routing — plus things few other tools combine: scripting at the current URL, Watch mode, and an API designed for LLMs. Reach for the specialist tool when you outgrow the quick path.</p>
 
-      <h3 id="first-steps"><a href="#first-steps">I launched it. Where do I start?</a></h3>
-      <p>Go to the site you are testing. Open the <strong>Script Console</strong> (<kbd>Ctrl</kbd>+<kbd>0</kbd>) and try a few Quicktests. Watch mode can re-run a smoke script on every navigation — tailor it to <em>your</em> service (user name, company musts, no 500s).</p>
-      <p>Useful from minute one: <kbd>Ctrl</kbd>+<kbd>D</kbd> copies random test data, <kbd>Ctrl</kbd>+<kbd>I</kbd> offers a testing inspiration, F12 is DevTools. If you have an LLM agent, turn on the REST API in the status bar and hand it the kit docs.</p>
-      <p>The <a href="manual.html">in-app manual</a> walks through this in more detail.</p>
-
       <h3 id="csharp"><a href="#csharp">I don’t know C#. Can I still use it?</a></h3>
       <p>Yes. Browse, inspect, run Quicktests, use the built-in Chat, and let an external agent drive the API or write new quicktests for you — none of that requires you to write C#. Scripts are C# (<code>.csx</code>, Roslyn) because that is what the host is. If you already script in another language, the syntax gap is small; start from a Quicktest and change it. The <a href="script-help.html">Script Console help</a> is the cheat sheet.</p>
 
@@ -304,6 +303,15 @@
       <h3 id="record"><a href="#record">Can I record what I do and play it back?</a></h3>
       <p>Yes, and it is still fragile, like every record/playback tool. First use is “help me right now,” not a five-year regression suite. Recordings often pick xpaths you will want to rewrite. An LLM with the API is surprisingly good at repairing scripts. If durable automation is the goal, improve the recording by hand, start from an LLM draft, or use a dedicated framework.</p>
       <p><code>data-testid</code> (and WebMCP on the site) makes everything easier — for you and for the machine.</p>
+	  
+      <h3 id="black-screen"><a href="#black-screen">My screen went black, what happened?</a></h3>
+      <p>Congratulations, you are now simulating a blind user, so activate the screen reader and get experienced learning of your web sites accessibility. You probably hit Ctrl+B (as in blind), press it again to return to normal.</p>
+
+      <h3 id="unique-features"><a href="#unique-features">What are the unique features in Trowser?</a></h3>
+      <p>The big thing is that it is all-in-one, no extensions, no extra frameworks, all in one GUI.</p>
+	  <p>The most unique thing is probably the collaboration and handoffs between human and AI tester, working together in one journal. Or maybe the Surprise Me quicktest that help you with serendipity.</p>
+	  <p>Somewhat unique are peer sessions for BOLA and mirroring; quicktests for browser compatibility, GUI consistency and experiments; a passive scanning shadow extending security testing.</p>
+	  <p>It takes time to understand, but those that get started won't stop.</p>
     </div>
 
     <div class="section">
@@ -319,11 +327,6 @@
       <p>MCP is Streamable HTTP: <code>POST http://localhost:6923/mcp</code> with <code>Authorization: Bearer &lt;api-key&gt;</code>. Copied configs use <code>?mode=core</code> (interact + quality audits + a basic security scan). For a full security toolbox use <code>?mode=security</code>. REST is always the full API surface; Safe mode still applies.</p>
       <p>If you use REST API, give the agent the kit docs, not just the URL. Start with trowser-api-reference.md and prompt as you wish.</p>
 	  <p>You can also connect your agent to a local MCP server, using the MCP config Copy.</p>
-
-      <h3 id="chat-vs-agent"><a href="#chat-vs-agent">Chat window vs an external agent — which should I use?</a></h3>
-      <p><strong>Built-in Chat</strong> is for small chunks: a sounding board, a quick pass, something you watch happen. Set the provider in LLM Settings (OpenRouter free is the default; you still need your own key). Modes: Chat (advisor), Economical (everyday live testing), Full (complete tool surface). Long chats burn tokens because the whole history is resent — start a new conversation when the old context is not helping.</p>
-      <p><strong>An external agent</strong> (Cursor, Claude Code, …) with REST or MCP is the better setup for a real session. You can attach documentation, get a readable report, and leave it running over lunch. A strong model finds a useful share of what a human would, and sometimes things you did not have time for. A weak model mostly restates the current page.</p>
-      <p>Recommendation: second tester during lunch or after work — and you still judge the results. Pretty reports are not the same as good testing.</p>
 
       <h3 id="api-key"><a href="#api-key">Why do I need an API key?</a></h3>
       <p>Anyone who can call localhost with a valid key can drive the browser, run page JavaScript, run C# in the Trowser process, and reuse the session’s cookies. The key is that privilege boundary. It is generated each start unless you keep it or pass <code>--api-key</code>. <code>GET /api/ping</code> is the exception (health check, no key).</p>
